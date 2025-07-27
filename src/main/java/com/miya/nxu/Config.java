@@ -1,4 +1,4 @@
-package com.myname.mymodid;
+package com.miya.nxu;
 
 import java.io.File;
 
