@@ -46,15 +46,21 @@ public class ItemHungerAxe  extends ItemAxe {
             return false;
         if(target instanceof EntityZombie z && z.isVillager())
         {
+            attacker.addExhaustion(3*4);
             spawnParticles(target);
             if(!attacker.worldObj.isRemote)
                 z.convertToVillager();
             return true;
         }
         if(!target.isEntityUndead()) {
-            if(target.getHealth()<target.getMaxHealth())
+
+            float amountToHeal = Math.min(Config.HungerAxe.MaxHealthTransfer, target.getMaxHealth() - target.getHealth());
+            if (amountToHeal == 0)
             {
-                float amountToHeal=Math.min(Config.HungerAxe.MaxHealthTransfer, target.getMaxHealth()-target.getHealth());
+                attacker.addExhaustion(3*4);
+            }
+            else
+            {
                 if(Config.HungerAxe.StealHpFromAttacker)
                 {
                     if(attacker.getHealth()>=amountToHeal+1) {
@@ -65,11 +71,12 @@ public class ItemHungerAxe  extends ItemAxe {
                     }
                 }
                 target.setHealth(target.getHealth()+(amountToHeal+1));
-                attacker.getFoodStats().addStats(-(int)amountToHeal,0);
-                spawnParticles(target);
+                attacker.addExhaustion(amountToHeal*4);
             }
+            spawnParticles(target);
             return true;
         }
+        attacker.addExhaustion(3*4);
         spawnParticles(target);
         return false;
     }
