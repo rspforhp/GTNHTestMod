@@ -42,34 +42,24 @@ public class ItemHungerAxe  extends ItemAxe {
 
     @Override
     public boolean onLeftClickEntity(ItemStack stack, EntityPlayer attacker, Entity e) {
-        if(!(e instanceof EntityLivingBase  target))
-            return false;
+        if(!(e instanceof EntityLivingBase  target)) return false;
         if(target instanceof EntityZombie z && z.isVillager())
         {
             attacker.addExhaustion(3*4);
             spawnParticles(target);
-            if(!attacker.worldObj.isRemote)
-                z.convertToVillager();
+            if(!attacker.worldObj.isRemote) z.convertToVillager();
             return true;
         }
         if(!target.isEntityUndead()) {
 
             float amountToHeal = Math.min(Config.HungerAxe.MaxHealthTransfer, target.getMaxHealth() - target.getHealth());
             if (amountToHeal == 0)
-            {
-                attacker.addExhaustion(3*4);
-            }
+                if(Config.HungerAxe.UseHungerWithoutInteraction) attacker.addExhaustion(3*4);
             else
             {
                 if(Config.HungerAxe.StealHpFromAttacker)
-                {
-                    if(attacker.getHealth()>=amountToHeal+1) {
-                        attacker.setHealth(attacker.getHealth()-amountToHeal);
-                    }
-                    else {
-                        return true;
-                    }
-                }
+                    if(attacker.getHealth()>=amountToHeal+1) attacker.setHealth(attacker.getHealth()-amountToHeal);
+                    else return true;
                 target.setHealth(target.getHealth()+(amountToHeal+1));
                 attacker.addExhaustion(amountToHeal*4);
             }
