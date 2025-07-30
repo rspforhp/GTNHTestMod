@@ -19,19 +19,23 @@ public class Config {
         public static Float SaturationGain=0.25f;
         public static Boolean UseHungerWithoutInteraction=true;
 
+        public static Boolean VoidMinedBlock=false;
+
     }
 
 
     public static void synchronizeConfiguration(File configFile) {
         Configuration configuration = new Configuration(configFile);
 
-        HungerAxe.StealHpFromAttacker=configuration.getBoolean("StealHpFromAttacker",Configuration.CATEGORY_GENERAL, HungerAxe.StealHpFromAttacker,"Whether to steal hp from the attacker to heal the target.");
-        HungerAxe.SpawnParticlesOnInteraction=configuration.getBoolean("SpawnParticlesOnInteraction",Configuration.CATEGORY_GENERAL, HungerAxe.SpawnParticlesOnInteraction,"Whether to spawn particles on all axe interactions or not.");
-        HungerAxe.DamageAgainstUndead=configuration.getFloat("DamageAgainstUndead",Configuration.CATEGORY_GENERAL, HungerAxe.DamageAgainstUndead,0,100,"How much damage the axe does(it can only damage undead mobs).");
-        HungerAxe.MaxHealthTransfer=configuration.getInt("MaxHealthTransfer",Configuration.CATEGORY_GENERAL, HungerAxe.MaxHealthTransfer,0,100,"How much health at max can be transfered to the entity.");
-        HungerAxe.FoodGain=configuration.getInt("FoodGain",Configuration.CATEGORY_GENERAL, HungerAxe.FoodGain,0,20,"How much food is added every 2 seconds.");
-        HungerAxe.SaturationGain=configuration.getFloat("SaturationGain",Configuration.CATEGORY_GENERAL, HungerAxe.SaturationGain,0f,1f,"How much saturation (% of food) is added every 2 seconds.");
-        HungerAxe.UseHungerWithoutInteraction=configuration.getBoolean("UseHungerWithoutInteraction",Configuration.CATEGORY_GENERAL, HungerAxe.UseHungerWithoutInteraction,"Use hunger even if the target didn't get healed.");
+        configuration.addCustomCategoryComment("HungerAxe", "Values for hunger axe item");
+        HungerAxe.StealHpFromAttacker=configuration.getBoolean("StealHpFromAttacker","HungerAxe", HungerAxe.StealHpFromAttacker,"Whether to steal hp from the attacker to heal the target.");
+        HungerAxe.SpawnParticlesOnInteraction=configuration.getBoolean("SpawnParticlesOnInteraction","HungerAxe", HungerAxe.SpawnParticlesOnInteraction,"Whether to spawn particles on all axe interactions or not.");
+        HungerAxe.DamageAgainstUndead=configuration.getFloat("DamageAgainstUndead","HungerAxe", HungerAxe.DamageAgainstUndead,0,100,"How much damage the axe does(it can only damage undead mobs).");
+        HungerAxe.MaxHealthTransfer=configuration.getInt("MaxHealthTransfer","HungerAxe", HungerAxe.MaxHealthTransfer,0,100,"How much health at max can be transfered to the entity.");
+        HungerAxe.FoodGain=configuration.getInt("FoodGain","HungerAxe", HungerAxe.FoodGain,0,20,"How much food is added every 2 seconds.");
+        HungerAxe.SaturationGain=configuration.getFloat("SaturationGain","HungerAxe", HungerAxe.SaturationGain,0f,1f,"How much saturation (% of food) is added every 2 seconds.");
+        HungerAxe.UseHungerWithoutInteraction=configuration.getBoolean("UseHungerWithoutInteraction","HungerAxe", HungerAxe.UseHungerWithoutInteraction,"Use hunger even if the target didn't get healed.");
+        HungerAxe.VoidMinedBlock=configuration.getBoolean("VoidMinedBlock","HungerAxe", HungerAxe.VoidMinedBlock,"Void the mined block, like the rest of the unstable tools.");
 
 
         if (configuration.hasChanged()) {

@@ -1,6 +1,7 @@
 package com.miya.nxu.Items;
 
 import com.miya.nxu.Config;
+import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
@@ -84,11 +85,19 @@ public class ItemHungerAxe  extends ItemAxe {
                 fs.addStats(Config.HungerAxe.FoodGain, Config.HungerAxe.SaturationGain);
             }
         }
+        //Block
     }
+
+
 
     //Unbreakable
     @Override
     public boolean isDamageable() {
+        return false;
+    }
+
+    @Override
+    public boolean getIsRepairable(ItemStack p_82789_1_, ItemStack p_82789_2_) {
         return false;
     }
 
