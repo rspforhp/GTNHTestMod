@@ -15,6 +15,7 @@ public enum ModItems {
     HUNGER_AXE(true, new ItemHungerAxe(), "hunger_axe"),
     EROSION_SHOVEL(true, new ItemErosionShovel(), "erosion_shovel"),
     DESTRUCTION_PICKAXE(true, new ItemDestructionPickaxe(), "destruction_pickaxe"),
+    PRECISION_SHEARS(true, new ItemPrecisionShears(), "precision_shears"),
 
 
     ; // leave trailing semicolon
