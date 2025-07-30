@@ -1,9 +1,9 @@
 package com.miya.nxu.mixins;
 
+import javax.annotation.Nonnull;
+
 import com.gtnewhorizon.gtnhmixins.builders.IMixins;
 import com.gtnewhorizon.gtnhmixins.builders.MixinBuilder;
-
-import javax.annotation.Nonnull;
 
 public enum Mixins implements IMixins {
 
@@ -16,7 +16,6 @@ public enum Mixins implements IMixins {
 
     ;
     // spotless:on
-
 
     private final MixinBuilder builder;
 

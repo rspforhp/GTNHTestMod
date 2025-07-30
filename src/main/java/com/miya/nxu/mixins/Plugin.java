@@ -1,25 +1,16 @@
 package com.miya.nxu.mixins;
 
-
-import java.io.File;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import net.minecraft.nbt.NBTTagCompound;
-
-import org.spongepowered.asm.lib.tree.ClassNode;
-import org.spongepowered.asm.service.MixinService;
-
 import com.gtnewhorizon.gtnhmixins.IEarlyMixinLoader;
 import com.gtnewhorizon.gtnhmixins.builders.IMixins;
-import com.gtnewhorizon.gtnhmixins.builders.ITransformers;
-
 
 import cpw.mods.fml.relauncher.IFMLLoadingPlugin;
 
 @IFMLLoadingPlugin.MCVersion("1.7.10")
-@IFMLLoadingPlugin.TransformerExclusions({"optifine" })
+@IFMLLoadingPlugin.TransformerExclusions({ "optifine" })
 public class Plugin implements IFMLLoadingPlugin, IEarlyMixinLoader {
 
     @Override

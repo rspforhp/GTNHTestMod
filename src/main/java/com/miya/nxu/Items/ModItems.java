@@ -1,18 +1,20 @@
 package com.miya.nxu.Items;
 
-import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
+import cpw.mods.fml.common.registry.GameRegistry;
+
 // Structure from Et Futurum (Requiem)
 public enum ModItems {
-
 
     // spotless:off
     // make sure to leave a trailing comma
 
 
     HUNGER_AXE(true, new ItemHungerAxe(), "hunger_axe"),
+    EROSION_SHOVEL(true, new ItemErosionShovel(), "erosion_shovel"),
+    DESTRUCTION_PICKAXE(true, new ItemDestructionPickaxe(), "destruction_pickaxe"),
 
 
     ; // leave trailing semicolon
@@ -26,7 +28,8 @@ public enum ModItems {
                 GameRegistry.registerItem(item.get(), item.name);
             }
         }
-        //What happens when it's turned off, but gets turned on later? does the item just disappear from inventories and stuff?
+        // What happens when it's turned off, but gets turned on later? does the item just disappear from inventories
+        // and stuff?
     }
 
     final private boolean isEnabled;
