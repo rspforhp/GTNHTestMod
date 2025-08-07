@@ -1,16 +1,11 @@
 package com.miya.nxu.Items;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
-import net.minecraftforge.oredict.OreDictionary;
 
 public class ItemDestructionPickaxe extends ItemPickaxe {
 
@@ -19,7 +14,7 @@ public class ItemDestructionPickaxe extends ItemPickaxe {
         setTextureName("nxu:destruction_pickaxe");
         setUnlocalizedName("destruction_pickaxe");
         setMaxDamage(0);
-        //efficiencyOnProperMaterial*=5;
+        // efficiencyOnProperMaterial*=5;
     }
 
     public static ArrayList<Block> StoneBlocks = new ArrayList<>();
@@ -30,9 +25,9 @@ public class ItemDestructionPickaxe extends ItemPickaxe {
     // im not sure if its meant to ONLY mine stone?
     @Override
     public float func_150893_a(ItemStack itemstack, Block block) {
-        float r=super.func_150893_a(itemstack,block);
-        if(r!=efficiencyOnProperMaterial)r=0.1f;
-        if(block.getMaterial()== Material.rock)r*=5;
+        float r = super.func_150893_a(itemstack, block);
+        if (r != efficiencyOnProperMaterial) r = 0.1f;
+        if (block.getMaterial() == Material.rock) r *= 5;
         return r;
     }
 

@@ -21,8 +21,8 @@ public class ItemErosionShovel extends ItemSpade {
     // should mine slower than a fist for uneffective materials
     @Override
     public float func_150893_a(ItemStack itemstack, Block block) {
-        float r=super.func_150893_a(itemstack,block);
-        if(r!=efficiencyOnProperMaterial)r=0.1f;
+        float r = super.func_150893_a(itemstack, block);
+        if (r != efficiencyOnProperMaterial) r = 0.1f;
         return r;
     }
 
